@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <a href="{% url "addreview" %}">Add Book and Review</a> | <a href="/logout">Logout</a>
+    <br>
+    <br>
+    <h1>Welcome, {{ member.firstname }}! </h1>
+
+    <div class="recent_reviews">
+      <h2>Recent Reviews</h2>
+      {% for review in reviews %}
+        <h3><a href="{% url "showbook" id=review.book.id %}">{{ review.book.title }}</a></h3>
+        <p><a href="{% url "showmember" id=review.member.id %}">{{ review.member.firstname }}</a> says: {{ review.content }} | {{ review.rating }} out of 10 </p>
+      {% endfor %}
+    </div>
+
+    <div class="other_books">
+      <h2>Other Books with Reviews</h2>
+      {% for book in books %}
+        <p><a href="{% url "showbook" id=book.id %}">{{ book.title }}</a></p>
+      {% endfor %}
+
+    </div>
+
+  </body>
+</html>
