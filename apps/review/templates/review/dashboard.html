@@ -5,7 +5,9 @@
     <title>Dashboard</title>
   </head>
   <body>
-    <a href="{% url "addreview" %}">Add Book and Review</a> | <a href="/logout">Logout</a>
+    <a href="{% url "addreview" %}">Add Book and Review</a> |
+    <a href="{% url "showmember" id=member.id %}">Your Profile</a> |
+    <a href="/logout">Logout</a>
     <br>
     <br>
     <h1>Welcome, {{ member.firstname }}! </h1>
